@@ -26,7 +26,7 @@ let config = {
             debug: true
         }
     },
-    scene: [Load, Play ]
+    scene: [Load, Play, GameOver ]
 }
 
 let game = new Phaser.Game(config)
@@ -38,5 +38,12 @@ let centerX = game.config.width/2;
 let centerY = game.config.height/2;
 let w = game.config.width;
 let h = game.config.height;
+let RKey, keyLEFT, keyLEFT2, keyRIGHT, keyRIGHT2
 const paddleWidth = 32;
 const paddleHeight = 190;
+/*
+const RKey = Phaser.Input.Keyboard.KeyCodes.R
+const keyLEFT = Phaser.Input.Keyboard.KeyCodes.LEFT
+const keyLEFT2 = Phaser.Input.Keyboard.KeyCodes.A
+const keyRIGHT = Phaser.Input.Keyboard.KeyCodes.RIGHT
+const keyRIGHT2 = Phaser.Input.Keyboard.KeyCodes.D*/

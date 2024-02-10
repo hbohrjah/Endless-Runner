@@ -33,8 +33,8 @@ class Load extends Phaser.Scene {
 
         this.load.spritesheet('mouse', 'img/mouseLeft-Sheet.png', 
         {
-            frameWidth: 64,
-            frameHeight: 64
+            frameWidth: 32,
+            frameHeight: 32
         })
 
         this.load.spritesheet('arrow', 'img/arrowDir-Sheet.png',
@@ -42,17 +42,6 @@ class Load extends Phaser.Scene {
             frameWidth: 64,
             frameHeight: 32
         })
-        /*
-        // load single audio file
-        this.load.audio('sfx-select', './assets/sfx-select.wav')
-        // load bulk audio file
-        this.load.audio('sfx-explosion', [
-            './assets/sfx_explode1.wav',
-            './assets/sfx_explode2.wav',
-            './assets/sfx_explode3.wav',
-            './assets/sfx_explode4.wav'
-        ])}*/
-        
     }
 
     create() {
