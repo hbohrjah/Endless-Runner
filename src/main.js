@@ -16,8 +16,8 @@
 
 let config = {
     type: Phaser.AUTO,
-    width: 640,
-    height: 480,
+    width: 960,
+    height: 540,
     physics:
     {
         default: 'arcade',
@@ -38,6 +38,20 @@ let centerX = game.config.width/2;
 let centerY = game.config.height/2;
 let w = game.config.width;
 let h = game.config.height;
+let passed = 0
+let inc = false
+let scoreConfig = {
+    fontFamily: 'Courier',
+    fontSize: '28px',
+    backgroundColor: '#F3B141',
+    color: '#843605',
+    align: 'right',
+    padding: {
+      top: 5,
+      bottom: 5,
+    },
+    fixedWidth: 100
+  }
 let RKey, keyLEFT, keyLEFT2, keyRIGHT, keyRIGHT2
 const paddleWidth = 32;
 const paddleHeight = 190;
