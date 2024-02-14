@@ -39,7 +39,7 @@ class GameOver extends Phaser.Scene {
         //cursors = this.input.keyboard.createCursorKeys();
         this.add.text(game.config.width/2, game.config.height/2, 'GAME OVER', scoreConfig).setOrigin(0.5)
         this.add.text(game.config.width/2, game.config.height/2 + 32, 'Press (R) to Restart', scoreConfig).setOrigin(0.5)
-        this.add.text(game.config.width/2, game.config.height/2 + 64, 'Press (F) for Creditsddddd', scoreConfig).setOrigin(0.5)
+        this.add.text(game.config.width/2, game.config.height/2 + 64, 'Press (F) for Credits', scoreConfig).setOrigin(0.5)
     }
 
     update() {
