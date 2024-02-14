@@ -7,26 +7,49 @@ class Dart extends Phaser.Physics.Arcade.Sprite
         super(scene, x, y, texture, frame)
         scene.add.existing(this)
         scene.physics.add.existing(this)
+        this.setDepth(1)
         this.parentScene = scene
         this.points = pointValue
         this.body.allowGravity = false
+        this.sfxPop = this.scene.sound.add('sfx-pop')
+        this.sfxPop.setVolume(1.5)
         this.setScale(1.5)
         this.setOrigin(0,0)
+
         
+        
+        this.scene.input.keyboard.on('keydown', (pointer)=>{
+            if (keyLEFT.isDown || keyLEFT2.isDown) {
+                if(this.scene.travel == false)
+                {
+                    this.setVelocityX(-600) 
+                }
+                 
+            } else if (keyRIGHT.isDown || keyRIGHT2.isDown) {
+                
+                if(this.scene.travel == false)
+                {
+                    this.setVelocityX(-600) 
+                }
+            }
+        })
         
         this.scene.input.on('pointerdown', (pointer)=> 
         {
             //start the platforms
             //start the parallax animation
             //destroy the turtorial
-            this.setVelocityX(-600) 
+            if(this.scene.travel == false)
+            {
+                this.setVelocityX(-600) 
+            }
             //this.platGroup.setVelocityX(-100); // Start moving platforms to the left
         }, this)
     }
 
     reset()
     {
-        this.x = game.config.width
+        this.x = game.config.width + 64
         this.y = Phaser.Math.Between(this.parentScene.P1.y, h/3)
         //this.y = this.parentScene.P1.y
     }
@@ -47,6 +70,8 @@ class Dart extends Phaser.Physics.Arcade.Sprite
         }
 
         if (this.ballCollision()) {
+            this.sfxPop.play()
+            this.parentScene.bkSong.stop()
             this.parentScene.scene.start('gameOverScene')
             //this.shipExplode(this.dart)
         }

@@ -32,6 +32,12 @@ class Load extends Phaser.Scene {
             frameHeight: 32
         })
 
+        this.load.spritesheet('background', 'img/background.png', 
+        {
+            frameWidth: 960,
+            frameHeight: 540
+        })
+
         this.load.spritesheet('mouse', 'img/mouseLeft-Sheet.png', 
         {
             frameWidth: 32,
@@ -48,6 +54,10 @@ class Load extends Phaser.Scene {
             frameWidth: 32,
             frameHeight: 32
         })
+
+        this.load.audio('sfx-song', 'sfx/bgSong.wav')
+        this.load.audio('sfx-bounce', 'sfx/bounce.wav')
+        this.load.audio('sfx-pop', 'sfx/pop.wav')
     }
 
     create() {
@@ -81,6 +91,12 @@ class Load extends Phaser.Scene {
             frameRate: 20,
             repeat: 2
         })
+        /*this.anims.create({
+            key: 'backgroundTr',
+            frames: this.anims.generateFrameNumbers('background', { start: 0, end: 2}),
+            frameRate: 20,
+            repeat: 2
+        })*/
 
         // go to Title scene
         this.scene.start('playScene');

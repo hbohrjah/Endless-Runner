@@ -37,6 +37,9 @@ class GameOver extends Phaser.Scene {
 */
         // set up cursor keys
         //cursors = this.input.keyboard.createCursorKeys();
+        this.add.text(game.config.width/2, game.config.height/2, 'GAME OVER', scoreConfig).setOrigin(0.5)
+        this.add.text(game.config.width/2, game.config.height/2 + 32, 'Press (R) to Restart', scoreConfig).setOrigin(0.5)
+        this.add.text(game.config.width/2, game.config.height/2 + 64, 'Press (F) for Creditsddddd', scoreConfig).setOrigin(0.5)
     }
 
     update() {
@@ -60,7 +63,14 @@ class GameOver extends Phaser.Scene {
         if (Phaser.Input.Keyboard.JustDown( this.input.keyboard.addKey(RKey))) {
             // start next scene
             passed = 0
+            
             this.scene.start('playScene');
+
+        }
+        else if(Phaser.Input.Keyboard.JustDown( this.input.keyboard.addKey(FKey)))
+        {
+            passed = 0
+            this.scene.start('creditsScene');
         }
     }
 }

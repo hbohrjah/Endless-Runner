@@ -1,6 +1,16 @@
-// Code Practice: RNGolf
-// Name: 
-// Date:
+// Code Practice: Endless Runner
+// Name: Handrei Bohrjah
+// Date: 2/12/2024
+
+//Creative Tilt:
+/*
+    I am mainly proud of my implmentation of the scrolling platforms when the player enters an initial input. 
+    Aditionally, I added the missle sprite that had shoots at random heights in order to provide a challenge to the player.
+    I also liked my implementation of visual effects because everytime the ball collides witht he platforms, the background changes color.
+    I believe that the implementation reduces the performance of the game, but provides a striking visual element to the player. Overall,
+    I am satisfied that I was able to implement a physics based runner which relies on a balance of bouncing and pitching back and forth.
+*/
+
 /*
 <script type="text/javascript" src="./lib/phaser.js"></script>
 <script type="text/javascript" src="./src/scenes/Load.js"></script>
@@ -23,10 +33,10 @@ let config = {
         default: 'arcade',
         arcade: {
             gravity: { y: 1000 },
-            debug: true
+            debug: false
         }
     },
-    scene: [Load, Play, GameOver ]
+    scene: [Load, Play, GameOver, Credits ]
 }
 
 let game = new Phaser.Game(config)
@@ -42,17 +52,14 @@ let passed = 0
 let inc = false
 let scoreConfig = {
     fontFamily: 'Courier',
-    fontSize: '28px',
-    backgroundColor: '#F3B141',
-    color: '#843605',
+    fontSize: '32px',
+    backgroundColor: '#00FF00',
+    color: '#000000',
     align: 'right',
-    padding: {
-      top: 5,
-      bottom: 5,
-    },
-    fixedWidth: 100
+    
   }
-let RKey, keyLEFT, keyLEFT2, keyRIGHT, keyRIGHT2
+let RKey, FKey, keyLEFT, keyLEFT2, keyRIGHT, keyRIGHT2
+let highScore = 0
 const paddleWidth = 32;
 const paddleHeight = 190;
 /*

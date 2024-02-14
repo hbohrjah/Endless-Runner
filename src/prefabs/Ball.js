@@ -10,9 +10,10 @@ class Ball extends Phaser.Physics.Arcade.Sprite
         //sets collision body to circle
         this.body.setCircle(this.width/2)
         //this.body.setCollideWorldBounds(true)
+        this.setAlpha(1)
         this.body.setBounce(1.0)
         this.setGravityY(50);
-        this.setDepth(1);             // ensures that paddle z-depth remains above shadow paddles
+        this.setDepth(2);             // ensures that paddle z-depth remains above shadow paddles
         this.destroyed = false;       // custom property to track paddle life
         this.scene.input.on('pointerdown', (pointer)=> 
         {
@@ -41,13 +42,19 @@ class Ball extends Phaser.Physics.Arcade.Sprite
 
         if(this.y>height)
         {
-            this.parentScene.scene.start('gameOverScene')
+            this.gg()
         }
         /*if (this.ballCollision(this.ball, this.scene.dart)) {
             this.scene.start('gameOverScene')
             //this.shipExplode(this.dart)
         }*/
         
+    }
+
+    gg()
+    {
+            this.parentScene.bkSong.stop()
+            this.parentScene.scene.start('gameOverScene')
     }
     /*
     ballCollision(this, dart) 
